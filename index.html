@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehdi Mostefai — AI-Powered Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --text: #ffffff;
+            --text-muted: #888888;
+            --accent: #00d4ff;
+            --accent-orange: #ff6b00;
+            --border: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER */
+        header {
+            padding: 80px 0 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            object-fit: cover;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header-text .tagline {
+            font-size: 1.25rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .header-text p {
+            color: var(--text-muted);
+            max-width: 500px;
+        }
+
+        /* TOOLS BAR */
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .tool {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .highlight-orange {
+            color: var(--accent-orange);
+            font-weight: 500;
+        }
+
+        /* PROJECT GRID */
+        .project {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .project-info ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .project-info li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .project-info li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .status {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .status-retro {
+            background: rgba(255, 107, 0, 0.1);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        /* IMAGE GALLERY */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        .gallery img.full {
+            grid-column: span 2;
+        }
+
+        /* WORKFLOW SPECIFIC */
+        .workflow-img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text p {
+                max-width: 100%;
+            }
+
+            .tools {
+                justify-content: center;
+            }
+
+            .project {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img.full {
+                grid-column: span 1;
+            }
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="photo.png" alt="Mehdi Mostefai" class="avatar">
+                <div class="header-text">
+                    <h1>Mehdi Mostefai</h1>
+                    <div class="tagline">AI-Powered Builder</div>
+                    <p>Je pilote l'IA pour concevoir et livrer des produits complets. UX, UI, apps fonctionnelles, workflows automatisés. 20 ans de création. Autodidacte. Maker.</p>
+                    <div class="tools">
+                        <span class="tool">Claude</span>
+                        <span class="tool">Cursor IDE</span>
+                        <span class="tool">Dify</span>
+                        <span class="tool">N8N</span>
+                        <span class="tool">Make</span>
+                        <span class="tool">Photoshop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- DSP TUNER PRO -->
+    <section>
+        <div class="container">
+            <div class="section-title">Projet 01</div>
+            <div class="project">
+                <div class="project-info">
+                    <h3>DSP Tuner Pro</h3>
+                    <p>App de calibration pour systèmes car audio haut de gamme. Guide les installateurs étape par étape.</p>
+                    <ul>
+                        <li>UX complète : 12 phases, parcours guidé</li>
+                        <li>UI : design system industriel, composants custom</li>
+                        <li>App Next.js/React pilotée via Cursor IA</li>
+                        <li>Testé en conditions réelles (garage)</li>
+                        <li>PWA offline pour environnement sans réseau</li>
+                    </ul>
+                    <span class="status">En discussion avec un leader du secteur</span>
+                </div>
+                <div class="gallery">
+                    <img src="dsp-01.png" alt="DSP Tuner Pro - Home" onclick="openLightbox(this)">
+                    <img src="dsp-02.png" alt="DSP Tuner Pro - Mode" onclick="openLightbox(this)">
+                    <img src="dsp-03.png" alt="DSP Tuner Pro - Patch Bay" onclick="openLightbox(this)">
+                    <img src="dsp-04.png" alt="DSP Tuner Pro - Signal OEM" onclick="openLightbox(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW DIFY -->
+    <section>
+        <div class="container">
+            <div class="section-title">Projet 02</div>
+            <div class="project">
+                <div class="project-info">
+                    <h3>Workflow Dify — Audit Automatisé</h3>
+                    <p>Auditeur automatisé de projets techniques. Analyse docs, brevets, vidéos et génère un verdict.</p>
+                    <ul>
+                        <li>50+ nœuds orchestrés</li>
+                        <li>Multi-LLM (Claude + GPT)</li>
+                        <li>RAG, transcription vidéo YouTube</li>
+                        <li>Analyse de documents et brevets</li>
+                        <li>Verdict GO/NO_GO automatique</li>
+                    </ul>
+                    <span class="status">Production</span>
+                </div>
+                <div class="gallery">
+                    <img src="dify-01.png" alt="Dify Workflow - Vue 1" class="full" onclick="openLightbox(this)">
+                    <img src="dify-02.png" alt="Dify Workflow - Vue 2" class="full" onclick="openLightbox(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LPS DUO PRO -->
+    <section>
+        <div class="container">
+            <div class="section-title">Projet 03</div>
+            <div class="project">
+                <div class="project-info">
+                    <h3>LPS DUO PRO — Interface Audiophile</h3>
+                    <p>Interface de contrôle pour alimentation linéaire double rail. <span class="highlight-orange">Design volontairement rétro 8-bit, style années 80.</span></p>
+                    <ul>
+                        <li>UI complète Python/PyGame (4300 lignes)</li>
+                        <li>Jauges analogiques temps réel</li>
+                        <li>Communication série ATmega328P</li>
+                        <li>Multi-langues (FR, EN, ES, DE)</li>
+                        <li>Monitoring voltage, alertes sonores</li>
+                    </ul>
+                    <span class="status status-retro">Style CRT/Terminal intentionnel</span>
+                </div>
+                <div class="gallery">
+                    <img src="lps-01.png" alt="LPS DUO PRO - Jauges" onclick="openLightbox(this)">
+                    <img src="lps-02.png" alt="LPS DUO PRO - Santé" onclick="openLightbox(this)">
+                    <img src="lps-03.png" alt="LPS DUO PRO - Détails" class="full" onclick="openLightbox(this)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-links">
+                <a href="mailto:mehdimostefai@gmail.com">mehdimostefai@gmail.com</a>
+                <a href="https://linkedin.com/in/mehdi-aibuilder" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mmmprod" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            Autodidacte • Maker • 20 ans de création • Je pilote l'IA, je livre du réel
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img src="" alt="Preview" id="lightbox-img">
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>
