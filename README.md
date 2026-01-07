@@ -4,30 +4,30 @@
 
 ## 🚀 Portfolio
 
-**[Voir le site →](https://mmmprod.github.io/UI-UIX-Portfolio)**
+**[View the site →](https://mmmprod.github.io/UI-UIX-Portfolio)**
 
 ---
 
-## Projets
+## Projects
 
 ### DSP Tuner Pro
-App de calibration pour systèmes car audio haut de gamme.
-- UX complète : 12 phases, parcours guidé
-- UI : design system industriel
-- Next.js/React piloté via Cursor IA
-- En discussion avec un leader du secteur
+Calibration app for high-end car audio systems.
+- Full UX: 12 phases, guided step-by-step workflow
+- UI: industrial design system
+- Next.js/React built via Cursor AI
+- In discussion with an industry leader
 
-### Workflow Dify — Audit Automatisé
-Auditeur automatisé de projets techniques.
-- 50+ nœuds orchestrés
+### Dify Workflow — Automated Auditor
+Automated auditor for technical projects.
+- 50+ orchestrated nodes
 - Multi-LLM (Claude + GPT)
-- RAG, transcription vidéo, analyse brevets
+- RAG, video transcription, patent analysis
 
-### LPS DUO PRO — Interface Audiophile
-Interface de contrôle pour alimentation linéaire.
-- UI Python/PyGame (4300 lignes)
-- Design rétro 8-bit intentionnel
-- Communication série ATmega328P
+### LPS DUO PRO — Audiophile Interface
+Control interface for dual-rail linear power supply.
+- Full Python/PyGame UI (4300 lines)
+- Intentional retro 8-bit design
+- Serial communication with ATmega328P
 
 ---
 
