@@ -1,4 +1,4 @@
-# Mehdi Mostefai — AI-Powered Builder
+# Mehdi Mostefaï — AI-Powered Builder
 
 ![Portfolio Preview](dsp-01.png)
 
